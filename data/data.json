@@ -1,0 +1,349 @@
+{
+    "1E9109": [
+        {
+            "poids": 35.42,
+            "temperature": 28.5,
+            "humidite": 55.2,
+            "timestamp": "2025-02-24 09:40:11"
+        },
+        {
+            "poids": 38.17,
+            "temperature": 27.8,
+            "humidite": 53.1,
+            "timestamp": "2025-02-25 09:40:11"
+        },
+        {
+            "poids": 41.29,
+            "temperature": 26.4,
+            "humidite": 52.5,
+            "timestamp": "2025-02-26 09:40:11"
+        },
+        {
+            "poids": 39.75,
+            "temperature": 28.0,
+            "humidite": 54.3,
+            "timestamp": "2025-02-27 09:40:11"
+        },
+        {
+            "poids": 36.88,
+            "temperature": 29.1,
+            "humidite": 56.0,
+            "timestamp": "2025-02-28 09:40:11"
+        },
+        {
+            "poids": 40.45,
+            "temperature": 30.2,
+            "humidite": 57.8,
+            "timestamp": "2025-03-01 09:40:11"
+        },
+        {
+            "poids": 42.33,
+            "temperature": 31.5,
+            "humidite": 58.9,
+            "timestamp": "2025-03-02 09:40:11"
+        },
+        {
+            "poids": 34.56,
+            "temperature": 29.2,
+            "humidite": 54.5,
+            "timestamp": "2025-02-17 09:40:11"
+        },
+        {
+            "poids": 37.81,
+            "temperature": 28.3,
+            "humidite": 52.0,
+            "timestamp": "2025-02-18 09:40:11"
+        },
+        {
+            "poids": 40.25,
+            "temperature": 27.0,
+            "humidite": 51.7,
+            "timestamp": "2025-02-19 09:40:11"
+        },
+        {
+            "poids": 38.90,
+            "temperature": 28.4,
+            "humidite": 55.0,
+            "timestamp": "2025-02-20 09:40:11"
+        },
+        {
+            "poids": 35.00,
+            "temperature": 29.0,
+            "humidite": 56.5,
+            "timestamp": "2025-02-21 09:40:11"
+        },
+        {
+            "poids": 39.00,
+            "temperature": 30.1,
+            "humidite": 57.0,
+            "timestamp": "2025-02-22 09:40:11"
+        },
+        {
+            "poids": 41.00,
+            "temperature": 31.0,
+            "humidite": 58.0,
+            "timestamp": "2025-02-23 09:40:11"
+        }
+    ],
+    
+    "1DFF02": [
+        {
+            "poids": 53.76,
+            "temperature": 24.5,
+            "humidite": 50.0,
+            "timestamp": "2025-02-24 17:40:11"
+        },
+        {
+            "poids": 51.22,
+            "temperature": 25.0,
+            "humidite": 51.3,
+            "timestamp": "2025-02-25 17:40:11"
+        },
+        {
+            "poids": 55.45,
+            "temperature": 26.1,
+            "humidite": 49.8,
+            "timestamp": "2025-02-26 17:40:11"
+        },
+        {
+            "poids": 54.32,
+            "temperature": 27.3,
+            "humidite": 48.0,
+            "timestamp": "2025-02-27 17:40:11"
+        },
+        {
+            "poids": 50.98,
+            "temperature": 28.0,
+            "humidite": 47.2,
+            "timestamp": "2025-02-28 17:40:11"
+        },
+        {
+            "poids": 52.17,
+            "temperature": 29.4,
+            "humidite": 46.5,
+            "timestamp": "2025-03-01 17:40:11"
+        },
+        {
+            "poids": 55.00,
+            "temperature": 30.2,
+            "humidite": 45.0,
+            "timestamp": "2025-03-02 17:40:11"
+        },
+        {
+            "poids": 52.00,
+            "temperature": 24.0,
+            "humidite": 49.0,
+            "timestamp": "2025-02-17 17:40:11"
+        },
+        {
+            "poids": 50.00,
+            "temperature": 24.5,
+            "humidite": 50.2,
+            "timestamp": "2025-02-18 17:40:11"
+        },
+        {
+            "poids": 54.00,
+            "temperature": 25.5,
+            "humidite": 48.7,
+            "timestamp": "2025-02-19 17:40:11"
+        },
+        {
+            "poids": 53.50,
+            "temperature": 26.8,
+            "humidite": 47.5,
+            "timestamp": "2025-02-20 17:40:11"
+        },
+        {
+            "poids": 51.00,
+            "temperature": 27.5,
+            "humidite": 46.0,
+            "timestamp": "2025-02-21 17:40:11"
+        },
+        {
+            "poids": 52.00,
+            "temperature": 28.2,
+            "humidite": 45.5,
+            "timestamp": "2025-02-22 17:40:11"
+        },
+        {
+            "poids": 54.50,
+            "temperature": 29.0,
+            "humidite": 44.0,
+            "timestamp": "2025-02-23 17:40:11"
+        }
+    ],
+    
+    "1DSS02": [
+        {
+            "poids": 61.27,
+            "temperature": 14.5,
+            "humidite": 60.0,
+            "timestamp": "2025-02-24 09:40:11"
+        },
+        {
+            "poids": 63.50,
+            "temperature": 15.0,
+            "humidite": 62.1,
+            "timestamp": "2025-02-25 09:40:11"
+        },
+        {
+            "poids": 62.05,
+            "temperature": 16.3,
+            "humidite": 61.0,
+            "timestamp": "2025-02-26 09:40:11"
+        },
+        {
+            "poids": 64.45,
+            "temperature": 16.9,
+            "humidite": 60.5,
+            "timestamp": "2025-02-27 09:40:11"
+        },
+        {
+            "poids": 60.90,
+            "temperature": 15.8,
+            "humidite": 59.9,
+            "timestamp": "2025-02-28 09:40:11"
+        },
+        {
+            "poids": 61.88,
+            "temperature": 17.4,
+            "humidite": 58.8,
+            "timestamp": "2025-03-01 09:40:11"
+        },
+        {
+            "poids": 62.35,
+            "temperature": 17.9,
+            "humidite": 58.0,
+            "timestamp": "2025-03-02 09:40:11"
+        },
+        {
+            "poids": 59.00,
+            "temperature": 13.5,
+            "humidite": 61.5,
+            "timestamp": "2025-02-17 09:40:11"
+        },
+        {
+            "poids": 60.00,
+            "temperature": 14.0,
+            "humidite": 62.0,
+            "timestamp": "2025-02-18 09:40:11"
+        },
+        {
+            "poids": 61.00,
+            "temperature": 15.0,
+            "humidite": 60.8,
+            "timestamp": "2025-02-19 09:40:11"
+        },
+        {
+            "poids": 63.00,
+            "temperature": 15.5,
+            "humidite": 59.5,
+            "timestamp": "2025-02-20 09:40:11"
+        },
+        {
+            "poids": 62.20,
+            "temperature": 14.5,
+            "humidite": 59.0,
+            "timestamp": "2025-02-21 09:40:11"
+        },
+        {
+            "poids": 61.50,
+            "temperature": 16.0,
+            "humidite": 58.5,
+            "timestamp": "2025-02-22 09:40:11"
+        },
+        {
+            "poids": 63.40,
+            "temperature": 16.7,
+            "humidite": 57.8,
+            "timestamp": "2025-02-23 09:40:11"
+        }
+    ],
+    
+    "1DFF05": [
+        {
+            "poids": 67.89,
+            "temperature": 35.0,
+            "humidite": 65.5,
+            "timestamp": "2025-02-24 09:40:11"
+        },
+        {
+            "poids": 68.33,
+            "temperature": 34.0,
+            "humidite": 64.0,
+            "timestamp": "2025-02-25 09:40:11"
+        },
+        {
+            "poids": 66.71,
+            "temperature": 33.0,
+            "humidite": 66.3,
+            "timestamp": "2025-02-26 09:40:11"
+        },
+        {
+            "poids": 69.22,
+            "temperature": 32.5,
+            "humidite": 67.8,
+            "timestamp": "2025-02-27 09:40:11"
+        },
+        {
+            "poids": 65.00,
+            "temperature": 31.0,
+            "humidite": 66.5,
+            "timestamp": "2025-02-28 09:40:11"
+        },
+        {
+            "poids": 67.50,
+            "temperature": 30.0,
+            "humidite": 68.0,
+            "timestamp": "2025-03-01 09:40:11"
+        },
+        {
+            "poids": 70.00,
+            "temperature": 29.5,
+            "humidite": 70.0,
+            "timestamp": "2025-03-02 09:40:11"
+        },
+        {
+            "poids": 66.00,
+            "temperature": 34.5,
+            "humidite": 63.0,
+            "timestamp": "2025-02-17 09:40:11"
+        },
+        {
+            "poids": 67.00,
+            "temperature": 33.0,
+            "humidite": 62.0,
+            "timestamp": "2025-02-18 09:40:11"
+        },
+        {
+            "poids": 68.50,
+            "temperature": 32.0,
+            "humidite": 64.0,
+            "timestamp": "2025-02-19 09:40:11"
+        },
+        {
+            "poids": 66.75,
+            "temperature": 31.5,
+            "humidite": 65.0,
+            "timestamp": "2025-02-20 09:40:11"
+        },
+        {
+            "poids": 68.00,
+            "temperature": 30.5,
+            "humidite": 66.0,
+            "timestamp": "2025-02-21 09:40:11"
+        },
+        {
+            "poids": 69.00,
+            "temperature": 29.8,
+            "humidite": 67.5,
+            "timestamp": "2025-02-22 09:40:11"
+        },
+        {
+            "poids": 70.50,
+            "temperature": 29.0,
+            "humidite": 68.5,
+            "timestamp": "2025-02-23 09:40:11"
+        }
+    ]
+}
