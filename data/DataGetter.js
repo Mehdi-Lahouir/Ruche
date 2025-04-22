@@ -1,16 +1,20 @@
-import { Alert } from 'react-native';
+import 'dotenv/config';
 
+// Convert big-endian hex string to 32-bit float
 function hexToFloatBigEndian(hexValue) {
   try {
-    const bytesData = new Uint8Array(hexValue.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
-    const dataView = new DataView(bytesData.buffer);
-    const floatVal = dataView.getFloat32(0, false);
+    const bytes = new Uint8Array(
+      hexValue.match(/.{1,2}/g).map(byte => parseInt(byte, 16))
+    );
+    const dv = new DataView(bytes.buffer);
+    const floatVal = dv.getFloat32(0, false);
     return Math.round(floatVal * 100) / 100;
-  } catch (error) {
-    throw new Error(`Error: ${error.message}`);
+  } catch (err) {
+    throw new Error(`hexToFloatBigEndian error: ${err.message}`);
   }
 }
 
+// Structured record for weight data
 class WeightRecord {
   constructor(poids, temperature, humidite, timestamp) {
     this.poids = poids;
@@ -29,6 +33,7 @@ class WeightRecord {
   }
 }
 
+// Decode Sigfox message payload
 function decodeSigfoxMessage(hexData, timestamp) {
   const poids = hexToFloatBigEndian(hexData.slice(0, 8));
   let temperature = 0.0;
@@ -42,49 +47,49 @@ function decodeSigfoxMessage(hexData, timestamp) {
   return new WeightRecord(poids, temperature, humidite, timestamp);
 }
 
+// Fetch raw feed data from Adafruit IO
 async function getFeedData(username, feedKey, apiKey) {
   const url = `https://io.adafruit.com/api/v2/${username}/feeds/${feedKey}/data`;
   const headers = { 'X-AIO-Key': apiKey };
 
   try {
-    const response = await fetch(url, { headers });
-    if (response.ok) {
-      const data = await response.json();
-      return data;
-    } else {
-      throw new Error('Impossible to fetch data');
+    const resp = await fetch(url, { headers });
+    if (!resp.ok) {
+      throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
     }
-  } catch (error) {
-    Alert.alert('Error', error.message);
+    return await resp.json();
+  } catch (err) {
+    console.error('Error fetching data:', err.message);
     return [];
   }
 }
 
+// Main entry: decode feed into structured records
 async function fetchData() {
-  require('dotenv').config();
   const AIO_KEY = process.env.ADAFRUIT_IO_KEY;
-  const AIO_USERNAME = '***REMOVED***';
+  const AIO_USERNAME = process.env.ADAFRUIT_IO_USERNAME;
   const FEED_KEY = 'poids';
 
-  const poidsData = await getFeedData(AIO_USERNAME, FEED_KEY, AIO_KEY);
+  const rawData = await getFeedData(AIO_USERNAME, FEED_KEY, AIO_KEY);
+  console.log(`Raw feedData length = ${rawData.length}`);
+
   const result = {};
 
-  for (const entry of poidsData) {
+  for (const entry of rawData) {
     const epoch = parseInt(entry.created_epoch, 10);
     const rawValue = entry.value;
-    const dateTime = new Date(epoch * 1000).toISOString().slice(0, 19).replace('T', ' ');
+    const dateTime = new Date(epoch * 1000)
+      .toISOString()
+      .slice(0, 19)
+      .replace('T', ' ');
 
     const parts = rawValue.split(';');
     const deviceId = parts.length === 4 ? parts[0] : 'Unknown';
-    const poids = parts.length === 4 ? parts[2] : rawValue;
+    const poidsHex = parts.length === 4 ? parts[2] : rawValue;
 
     if (deviceId !== 'Unknown') {
-      const record = decodeSigfoxMessage(poids, dateTime);
-
-      if (!result[deviceId]) {
-        result[deviceId] = [];
-      }
-
+      const record = decodeSigfoxMessage(poidsHex, dateTime);
+      if (!result[deviceId]) {result[deviceId] = [];}
       result[deviceId].push(record.toDict());
     }
   }
@@ -93,3 +98,14 @@ async function fetchData() {
 }
 
 export { fetchData };
+
+if (process.argv[1].endsWith('DataGetter.js')) {
+  (async () => {
+    try {
+      const data = await fetchData();
+      console.log(JSON.stringify(data, null, 2));
+    } catch (err) {
+      console.error('Fatal error:', err);
+    }
+  })();
+}
