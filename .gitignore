@@ -76,3 +76,5 @@ yarn-error.log
 
 # Local environment variables
 .env
+data/data.json
+data/users.json
