@@ -1,97 +1,98 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+Ruche Connectée
 
-# Getting Started
+Ruche Connectée est une application mobile multiplateforme (iOS & Android) développée en React Native pour permettre aux apiculteurs de surveiller à distance l’état de leurs ruches (poids, température, humidité) via le réseau Sigfox et Adafruit IO.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+🎯 Objectifs du projet
 
-## Step 1: Start Metro
+Suivi en temps réel des mesures de la ruche (jusqu’à 3 envois Sigfox/jour)
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+Affichage graphique dynamique des données (courbes poids/température/humidité)
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Système d’alerte par notification push en cas de seuil critique
 
-```sh
-# Using npm
-npm start
+Décodage des payloads Sigfox (hexadécimal big‑endian) en données exploitables
 
-# OR using Yarn
-yarn start
-```
+📁 Structure du dépôt
 
-## Step 2: Build and run your app
+Ruche/
+├── data/               # DONNÉES LOCALES (IGNORÉ POUR LA SÉCURITÉ)
+├── data/DataGetter.js  # Module de récupération et décodage des données Adafruit IO
+├── .env                # Variables d’environnement (clé Adafruit, utilisateur)
+├── package.json        # Dépendances et scripts npm
+├── .gitignore          # Fichiers et dossiers exclus du suivi Git
+└── README.md           # Documentation du projet
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Sécurité : Le dossier data/ est volontairement ignoré dans .gitignore car il peut contenir des fichiers JSON ou des logs locaux avec des clés d’API ou des informations sensibles. Cette mesure empêche toute fuite accidentelle de secrets.
 
-### Android
+⚙️ Installation
 
-```sh
-# Using npm
-npm run android
+Cloner le projet
 
-# OR using Yarn
-yarn android
-```
+git clone https://github.com/Mehdi-Lahouir/Ruche.git
+cd Ruche
 
-### iOS
+Installer les dépendances
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+npm install
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+Créer le fichier .env à la racine avec :
 
-```sh
-bundle install
-```
+ADAFRUIT_IO_KEY=<votre_clé_Adafruit_IO>
+ADAFRUIT_IO_USERNAME=<votre_utilisateur>
 
-Then, and every time you update your native dependencies, run:
+Vérifier que data/ et .env sont listés dans .gitignore.
 
-```sh
-bundle exec pod install
-```
+🚀 Utilisation
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+Lancer en CLI (pour test ou débogage) :
 
-```sh
-# Using npm
-npm run ios
+node data/DataGetter.js
 
-# OR using Yarn
-yarn ios
-```
+Cela affiche en JSON les enregistrements de poids décodés par dispositif.
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+Intégration dans une autre application :
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+import { fetchData } from './data/DataGetter.js';
 
-## Step 3: Modify your app
+(async () => {
+  const result = await fetchData();
+  console.log(result);
+})();
 
-Now that you have successfully run the app, let's make changes!
+🛠️ Technologies utilisées
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+React Native : UI mobile cross‑platform
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+Sigfox : réseau IoT basse consommation pour l’envoi de payloads
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+Adafruit IO : plateforme de flux de données (REST API)
 
-## Congratulations! :tada:
+dotenv : chargement des variables d’environnement
 
-You've successfully run and modified your React Native App. :partying_face:
+node-fetch (optionnel) : polyfill fetch en Node.js
 
-### Now what?
+✨ Équipe & Encadrement
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+Lahouir Mehdi : décodage Sigfox, intégration Adafruit IO
 
-# Troubleshooting
+Benabbou Mohamed Amine : interface graphique et graphiques dynamiques
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+Bouachrine Ahmed Reda : notifications push et logique de seuils
 
-# Learn More
+El Moudden Walid : coordination, rédaction, conception générale
 
-To learn more about React Native, take a look at the following resources:
+Encadrant : M. Philippe GHEERAERT
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Année scolaire : 2024/2025
+
+🔒 Sécurité & bonnes pratiques
+
+Ne jamais committer de clés d’API : utilisez toujours un fichier .env ignoré.
+
+Ignorer le dossier data/ pour éviter l’exfiltration de logs ou données brutes.
+
+En production, stockez les secrets dans un gestionnaire sécurisé (GitHub Secrets, Vault, etc.).
+
+🤝 Contribution
+
+Les contributions sont les bienvenues : ouvrez une issue ou un pull request sur GitHub.
