@@ -4,8 +4,8 @@ function hexToFloatBigEndian(hexValue) {
   try {
     const bytesData = new Uint8Array(hexValue.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
     const dataView = new DataView(bytesData.buffer);
-    const floatVal = dataView.getFloat32(0, false); 
-    return Math.round(floatVal * 100) / 100; 
+    const floatVal = dataView.getFloat32(0, false);
+    return Math.round(floatVal * 100) / 100;
   } catch (error) {
     throw new Error(`Error: ${error.message}`);
   }
@@ -61,7 +61,8 @@ async function getFeedData(username, feedKey, apiKey) {
 }
 
 async function fetchData() {
-  const AIO_KEY = '***REMOVED***';
+  require('dotenv').config();
+  const AIO_KEY = process.env.ADAFRUIT_IO_KEY;
   const AIO_USERNAME = '***REMOVED***';
   const FEED_KEY = 'poids';
 
